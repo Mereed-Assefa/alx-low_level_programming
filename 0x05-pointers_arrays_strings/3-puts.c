@@ -1,21 +1,22 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
-*_puts - prints a string
-*@str: A pointer to an int that will be changed
-*
-*Return: void which means our answer is correct
-*/
+ * _puts - prints a string
+ * @str: string
+ *
+ *Return: void
+ */
 
 void _puts(char *str)
 {
-char *c;
-int m;
+	int i;
 
-c = str;
-
-for (m = 0; c[m]; m++)
-{
-_putchar (c[m]);
-}
-_putchar('\n');
+	i = 0;
+	while (*str != '\0')
+	{
+		_putchar(*str);
+		i++;
+		str++;
+	}
+	_putchar('\n');
 }

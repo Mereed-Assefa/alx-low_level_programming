@@ -1,47 +1,40 @@
-#include "main.h"
-
+#include "holberton.h"
+#include <stdio.h>
 /**
- * is_numerical - check if it is a digit
- * @n: Number
- * Return: If is a number, return 1 else return 0
- */
-int is_numerical(unsigned int n)
-{
-return (n >= '0' &&  n <= '9');
-}
-
-/**
- * _atoi - convert a string to an integer
- *@s: String
- * Return: Return the num
+ *_atoi - converts a string to an integer.
+ *@s: pointer to string.
+ *
+ *Return: integer gotten.
  */
 int _atoi(char *s)
 {
-unsigned int number, i;
-int sign;
+	int index, ind2;
+	unsigned int res;
+	int sign = 1;
+	char now;
 
-sign = 1;
-number = 0;
-
-
-
-for (i = 0; s[i] != '\0'; i++)
-{
-if (is_numerical(s[i]))
-{
-number = (s[i] - 48) + number * 10;
-
-if (s[i + 1] == ' ')
-break;
-}
-else if (s[i] == '-')
-{
-sign *= -1;
-}
-
-}
-
-return (number *sign);
-
-
+	index = 0;
+	res = 0;
+	while (*(s + index) != '\0')
+	{
+		now = *(s + index);
+		if (now == '-')
+		{
+			sign *= -1;
+		}
+		if (now >= '0' && now <= '9')
+		{
+			ind2 = index;
+			while (*(s + ind2) > 47 && *(s + ind2) < 58)
+			{
+				res = (res * 10) + *(s + ind2) - '0';
+				ind2++;
+			}
+			break;
+		}
+		index++;
+	}
+	if (sign < 0)
+		res *= sign;
+	return (res);
 }
