@@ -1,17 +1,16 @@
 #include "holberton.h"
 
 /**
- * _isupper - Checks for uppercase characters
+ * _isupper - check the code for Holberton School students.
  *
- * @c: Number to be checked
+ * @c: is an integer param
  *
- * Return: 1 (Sucess) OR 0 (Failure)
+ * Return: Always 0.
  */
+
 
 int _isupper(int c)
 {
-	if (c >= 65 && c <= 90)
-		return (1);
-	else
-		return (0);
+
+	return (c >= 65 && c <= 90);
 }
